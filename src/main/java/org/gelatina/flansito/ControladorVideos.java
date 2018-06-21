@@ -71,7 +71,7 @@ public class ControladorVideos {
         System.out.println("LLego el archivo  "+file.getOriginalFilename());
 
         File filesito=convert(file);
-        configuracionFtp.setNombre(materia+"."+extencion);
+        configuracionFtp.setNombre(materia+"-"+bloque+"-"+curso+"."+extencion);
         gateway.sendToSftp(filesito);
 
 
