@@ -10,6 +10,6 @@ public class ControladorHola {
 
     @GetMapping("/")
     public  String hola(){
-        return "hola mundo mundo agresivoooo!!";
+        return "hola mundo mundo agresivoooo y marciano!!";
     }
 }
