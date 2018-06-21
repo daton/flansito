@@ -35,11 +35,11 @@ public class ControladorVideos {
     }
 
 
-
     @CrossOrigin(origins = { "https://daton.github.io" , "http://localhost:4200" }, allowCredentials = "true")
     @RequestMapping(value="/archivaldo", method= RequestMethod.POST)
     public Estatus
-     handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam("valor") String valor)throws Exception {
+    handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam("materia") String materia, @RequestParam("bloque") String bloque,
+    @RequestParam("curso") String curso)throws Exception {
         String nombre=file.getOriginalFilename();
         String prefijo="";
         LocalDate date=LocalDate.now();
@@ -70,9 +70,9 @@ public class ControladorVideos {
 
         System.out.println("LLego el archivo  "+file.getOriginalFilename());
 
-         File filesito=convert(file);
-         configuracionFtp.setNombre(valor+"."+extencion);
-         gateway.sendToSftp(filesito);
+        File filesito=convert(file);
+        configuracionFtp.setNombre(materia+"."+extencion);
+        gateway.sendToSftp(filesito);
 
 
 
@@ -81,13 +81,13 @@ public class ControladorVideos {
 
 
 
-        System.out.println("haaaaaa que paso con el otro "+valor);
+        System.out.println("haaaaaa que paso con el otro "+materia);
 
-    Estatus estatus=new Estatus();
-    estatus.setMensaje("SE subio correctamente");
+        Estatus estatus=new Estatus();
+        estatus.setMensaje("SE subio correctamente");
         System.out.println("NOp se subio??");
-    estatus.setSuccess(true);
-   return estatus;
+        estatus.setSuccess(true);
+        return estatus;
 
     }
 
