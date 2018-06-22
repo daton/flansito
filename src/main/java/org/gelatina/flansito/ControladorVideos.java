@@ -81,7 +81,7 @@ public class ControladorVideos {
 
 
 
-        System.out.println("haaaaaa que paso con el otro "+materia);
+        System.out.println("haaaaaa que paso con el otro "+materia+"-"+bloque+"-"+curso);
 
         Estatus estatus=new Estatus();
         estatus.setMensaje("SE subio correctamente");
